@@ -44,7 +44,7 @@ public class CanteenService {
        if(before<originMoney){
            return String.format("消费失败！余额不足，当前余额%。2f元",before);
        }
-        if(!dinner.consume(originMoney)){
+        if(!diner.consume(originMoney)){
             return"消费失败：账户状态异常，请联系管理员";
         }
         totalIncome += before - diner.getBalance();

@@ -1,8 +1,11 @@
 package com.canteen2.view;
-import com.canteen2.model.StudentDiner;
+
 import com.canteen2.model.StaffDiner;
+import com.canteen2.model.StudentDiner;
 import com.canteen2.service.CanteenService;
+
 import java.util.Scanner;
+
 public class ConsoleMenu {
     private Scanner scanner = new Scanner(System.in);
     private CanteenService service;
