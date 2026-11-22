@@ -91,7 +91,6 @@ public class ConsoleMenu {
                 TextOutput.setResizable(true);
                 TextOutput.setLocation(500,500);
                 TextOutput.setSize(600,800);
-                TextOutput.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 service.showAllDiner(TextOutput);
                 TextOutput.setVisible(true);
             }
