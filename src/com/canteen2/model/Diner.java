@@ -1,4 +1,7 @@
 package com.canteen2.model;
+
+import javax.swing.*;
+
 /**
  * 父类：二号食堂就餐人员
  */
@@ -34,8 +37,18 @@ public class Diner {
         }
         return false;
     }
-    public void showInfo() {
-        System.out.printf("卡号：%s 姓名：%s 类型：%d 余额：%.2f 元%n",
-                cardId, name, typeTag, balance);
+    public void showInfo(JFrame TextOutput) {
+        JLabel pCardid = new JLabel(cardId);
+        JLabel pName = new JLabel(name);
+        JLabel pType = new JLabel();
+        if (typeTag==1)
+            pType = new JLabel("学生");
+        else if (typeTag==2)
+            pType = new JLabel("老师");
+        JLabel pMoney = new JLabel(""+balance);
+        TextOutput.add(pCardid);
+        TextOutput.add(pName);
+        TextOutput.add(pType);
+        TextOutput.add(pMoney);
     }
 }

@@ -1,5 +1,8 @@
 package com.canteen2.service;
 import com.canteen2.model.Diner;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 /**
  * 二号食堂业务：人员登记、刷卡消费、营收统计
@@ -50,13 +53,27 @@ public class CanteenService {
         totalIncome += before - diner.getBalance();
         return String.format("消费成功！剩余余额 %.2f 元", diner.getBalance());
     }
-    public void showAllDiner() {
+    public void showAllDiner(JFrame TextOutput) {
         if (dinerList.isEmpty()) {
-            System.out.println("暂无登记的就餐人员");
+            JLabel text = new JLabel("暂无登记的就餐人员");
+            TextOutput.add(text);
             return;
         }
+        TextOutput.setLayout(new GridLayout(dinerList.size()+1, 6));
+        JLabel Top1 = new JLabel("卡号");
+        JLabel Top2 = new JLabel("姓名");
+        JLabel Top3 = new JLabel("身份");
+        JLabel Top4 = new JLabel("金额(元)");
+        JLabel Top5 = new JLabel("折扣");
+        JLabel Top6 = new JLabel("");
+        TextOutput.add(Top1);
+        TextOutput.add(Top2);
+        TextOutput.add(Top3);
+        TextOutput.add(Top4);
+        TextOutput.add(Top5);
+        TextOutput.add(Top6);
         for (Diner d : dinerList) {
-            d.showInfo(); // 多态：自动调用子类重写版本
+            d.showInfo(TextOutput); // 多态：自动调用子类重写版本
         }
     }
     public double getTotalIncome() {

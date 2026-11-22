@@ -1,4 +1,7 @@
 package com.canteen2.model;
+
+import javax.swing.*;
+
 /**
  * 子类：学生就餐人员，按原价扣款
  */
@@ -16,8 +19,12 @@ public class StudentDiner extends Diner {
     public String getClassName() { return className; }
     public void setClassName(String className) { this.className = className; }
     @Override
-    public void showInfo() {
-        super.showInfo();
-        System.out.println(" 身份：在校学生，班级：" + className);
+    public void showInfo(JFrame TextOutput) {
+        super.showInfo(TextOutput);
+        JLabel pDiscount = new JLabel("1");
+        JLabel pCome = new JLabel("班级："+className);
+        TextOutput.add(pDiscount);
+        TextOutput.add(pCome);
+        //System.out.println(" 身份：在校学生，班级：" + className);
     }
 }
